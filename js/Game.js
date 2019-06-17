@@ -6,7 +6,8 @@ class Game {
     this.height = CANVAS_HEIGHT;
     this.gameStarted = false;
     this.gameOver = false;
-    this.playerScore = 0;
+    this.mazeInPlace = false;
+    this.pathInPlace = false;
   }
   draw(ctx) {
     if (!this.gameStarted && !this.gameOver) {

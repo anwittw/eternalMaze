@@ -53,7 +53,7 @@ class Creator {
 // }
 
   update() {
-   if(game.gameStarted && !game.gameOver &&!creatorReachedEnd()) {
+   if(game.gameStarted && !game.gameOver &&!creatorReachedEnd() ) {
      this.x += this.vx;
     }
     //FIXME: Super simple and sucking solution for the collision check. It overlaps.

@@ -101,6 +101,7 @@ function creatorReachedEnd() {
   let result = false;
   creators.forEach(creator => {
     if (creator.x > 1200) {
+      game.pathInPlace = true;
       result = true;
     }
   });
