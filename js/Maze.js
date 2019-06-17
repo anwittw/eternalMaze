@@ -7,7 +7,7 @@ class Maze {
     ctx.save();
     ctx.fillStyle = "black";
     ctx.beginPath();
-    ctx.fillRect(this.x, 0, CANVAS_WIDTH * 10000, CANVAS_HEIGHT);
+    ctx.fillRect(this.x, 0, 1000000000000*40, CANVAS_HEIGHT);
     ctx.translate(this.x, this.y);
     ctx.restore();
     }

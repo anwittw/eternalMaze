@@ -17,7 +17,7 @@ function drawEverything(ctx) {
   ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   maze.draw(ctx);
   player.draw(ctx);
-  game.draw()
+  game.draw(ctx);
 }
 
 // updateEverything update variables
@@ -26,21 +26,29 @@ function updateEverything() {
   frame++;
   player.update();
   maze.update();
-  game.update()
+  game.update();
 }
 
 function checkCollision() {
   if (player.x + player.width > maze.x) {
-  console.log('hit')
+    console.log("hit");
     return true;
   }
-  console.log('no hit')
+  console.log("no hit");
   return false;
 }
 
-
 function startNewGame() {
-
+  console.log('newgameFunction')
+  if (game.gameStarted === false && game.gameOver === false) {
+    game.gameStarted = true;
+  }
+  if (game.gameStarted === false && game.gameOver === true) {
+    frame = 0; // The frame counter
+    player = new Player();
+    maze = new Maze();
+    game = new Game();
+  }
 }
 
 /*

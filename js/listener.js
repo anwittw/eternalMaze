@@ -35,9 +35,8 @@ document.onkeydown = event => {
     player.vy = 5;
   }
   if (event.keyCode === 32) {
-    if(!game.gameStarted || game.gameOver) {
+    console.log("space!")
       startNewGame()
-    }
     player.updatePlayerState()
   }
 };
