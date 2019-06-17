@@ -58,6 +58,7 @@ class Game {
       this.gameStarted = false;
     }
   }
+
   update() {
     this.checkForPlayerDefeat();
   }
