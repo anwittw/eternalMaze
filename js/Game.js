@@ -39,6 +39,21 @@ class Game {
     ctx.fillText("NEW GAME", this.width / 2, this.height / 2); 
     ctx.restore();
   }
+
+  drawNewGameScreen22() {
+    ctx.save();
+    ctx.fillStyle="white"
+    ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+    ctx.beginPath();
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.font = "120px no-continue"; 
+    ctx.textAlign = "center"; 
+    ctx.fillStyle="black"
+    ctx.fillText("NEW GAME", this.width / 2, this.height / 2); 
+    ctx.restore();
+
+  }
+
   update() {
 }
 }
