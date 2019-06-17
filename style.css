@@ -1,0 +1,27 @@
+
+
+@font-face {
+  font-family:"no-continue";
+  src: url("/font/gomarice_no_continue.ttf") format("truetype");
+}
+
+
+
+* {
+  font-family: 'no-continue'
+}
+
+
+canvas {
+  display: block;
+  border: 1px solid black;
+  max-height: calc(100vh - 120px);
+  max-width: 95vw;
+  margin: auto;
+}
+
+h1 {
+  font-size: 90px;
+  text-align: center;
+  margin: 40px;
+}
