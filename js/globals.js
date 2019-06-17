@@ -17,5 +17,11 @@ const RECTANGLE_Y_COLOR = '#78DD84';
 
 // MAZE Constants
 
-const MAZE_VELOCITY = -1;
+const MAZE_VELOCITY = -2.5;
+
+
+// Creator CONSTS
+
+const NUMBER_OF_CREATORS = 3000;
+const CREATOR_VELOCITY = 1.5;
 

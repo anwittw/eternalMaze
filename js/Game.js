@@ -27,7 +27,7 @@ class Game {
     ctx.fillText("GAME OVER", this.width / 2, this.height / 2);
     ctx.font = "40px no-continue";
     ctx.fillText(
-      "PRESS SPACE TO START A NEW GAME",
+      "PRESS SPACE",
       this.width / 2,
       this.height - 200
     );
@@ -52,7 +52,8 @@ class Game {
     ctx.restore();
   }
   checkForPlayerDefeat() {
-    if (player.x + player.width < 0) {
+    if ("a"==="b") {
+      //player.x + player.width < 0) {
       this.gameOver = true;
       this.gameStarted = false;
     }
