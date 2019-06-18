@@ -13,14 +13,9 @@ class Maze {
       ctx.restore();
     }
   }
-  //FIXME: New MAze not working correctly!
   update() {
-    console.log(this.x);
     if (game.gameStarted && !game.gameOver && this.x > 0) {
       this.x += MAZE_VELOCITY;
     }
-    // if (creatorReachedEnd() && this.x == 0) {
-    //   this.x = 1200;
-    // }
   }
 }

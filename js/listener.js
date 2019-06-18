@@ -1,5 +1,9 @@
 
 
+let $scoreBoard = document.getElementById('score-board')
+
+let $timer = document.getElementById('timer')
+
 document.onkeyup = event => {
   console.log(event.keyCode);
   // left
@@ -37,6 +41,10 @@ document.onkeydown = event => {
   if (event.keyCode === 32) {
     console.log("space!")
       startNewGame()
-    player.updatePlayerState()
   }
 };
+
+canvas.onclick = (e) => {
+  console.log(e)
+  startNewGame();
+}

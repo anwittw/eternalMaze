@@ -11,6 +11,10 @@
   font-family: 'no-continue'
 }
 
+body {
+  margin: 0;
+}
+
 
 canvas {
   display: block;
@@ -23,5 +27,12 @@ canvas {
 h1 {
   font-size: 90px;
   text-align: center;
-  margin: 40px;
+  margin: 30px;
 }
+
+
+span {
+  font-size: 40px;
+
+}
+
