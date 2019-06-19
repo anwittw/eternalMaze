@@ -47,6 +47,7 @@ function startNewGame() {
   console.log("newgameFunction");
   if (game.gameOver) {
     //console.log("hanse");
+    flipAll()
     frame = 0; // The frame counter
     player = new Player();
     maze = new Maze();

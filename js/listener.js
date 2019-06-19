@@ -6,6 +6,7 @@ let $lastScore = document.getElementById("last-score");
 let $timer = document.getElementById("timer");
 
 document.onkeyup = event => {
+  event.preventDefault()
   console.log(event.keyCode);
   // left
   if (event.keyCode === 37) {
@@ -24,6 +25,7 @@ document.onkeyup = event => {
 };
 
 document.onkeydown = event => {
+  event.preventDefault()
   console.log(event.keyCode);
   // left
   if (event.keyCode === 37) {
