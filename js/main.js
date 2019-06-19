@@ -133,8 +133,11 @@ function updateScoreBoard() {
 function updateLastScore() {
   let storedScore =  "000" + getItem('score');
   let storedName = getItem("playerName");
+  if (storedName)  
+  {
   let toAppend2 = "LAST SCORE: " + storedName + ", " + storedScore.substring(storedScore.length - 4, storedScore.length);
   $lastScore.innerText = toAppend2;
+  }
 }
 
 function gameInterval() {
@@ -159,11 +162,19 @@ function flip() {
     if(getComputedStyle(document.documentElement).getPropertyValue('--prim-clr') === 'white') {
       $root.style.setProperty('--prim-clr','black');
       $root.style.setProperty('--sec-colr','white');
+      game.whiteToBlack = 'black'
+      game.blackToWhite = 'white'
+      maze.blackToWhite = 'white'
+      creators.forEach((e) => e.whiteToBlack = "black")
 
     
     
     } else {
       $root.style.setProperty('--prim-clr','white');
       $root.style.setProperty('--sec-colr','black');
+      game.whiteToBlack = 'white'
+      game.blackToWhite = 'black'
+      maze.blackToWhite = 'black'
+      creators.forEach((e) => e.whiteToBlack = "white")
 }
     }

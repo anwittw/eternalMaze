@@ -1,5 +1,7 @@
 class Game {
   constructor() {
+    this.blackToWhite = 'black';
+    this.whiteToBlack = 'white';
     this.x = 0;
     this.y = 0;
     this.width = CANVAS_WIDTH;
@@ -28,13 +30,13 @@ class Game {
   }
   drawGameOverScreen() {
     ctx.save();
-    ctx.fillStyle = "black";
+    ctx.fillStyle = this.blackToWhite;
     ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
     ctx.beginPath();
     ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.font = "120px no-continue";
     ctx.textAlign = "center";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = this.whiteToBlack;
     ctx.fillText("GAME OVER", this.width / 2, this.height / 2);
     ctx.font = "40px no-continue";
     ctx.fillText("PRESS SPACE", this.width / 2, this.height - 200);
@@ -42,13 +44,13 @@ class Game {
   }
   drawNewGameScreen() {
     ctx.save();
-    ctx.fillStyle = "white";
+    ctx.fillStyle = this.whiteToBlack;
     ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
     ctx.beginPath();
     ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.font = "120px no-continue";
     ctx.textAlign = "center";
-    ctx.fillStyle = "black";
+    ctx.fillStyle = this.blackToWhite;
     ctx.fillText("NEW GAME", this.width / 2, this.height / 2);
     ctx.font = "40px no-continue";
     ctx.fillText(
@@ -66,13 +68,13 @@ class Game {
   }
   drawNextScreen() {
     ctx.save();
-    ctx.fillStyle = "black";
+    ctx.fillStyle = this.blackToWhite;
     ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
     ctx.beginPath();
     ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.font = "120px no-continue";
     ctx.textAlign = "center";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = this.whiteToBlack;
     ctx.fillText("NEXT", this.width / 2, this.height / 2);
     ctx.font = "40px no-continue";
     ctx.fillText("PRESS SPACE", this.width / 2, this.height - 200);

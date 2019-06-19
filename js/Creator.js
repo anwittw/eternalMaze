@@ -6,26 +6,20 @@ class Creator {
     this.x = Math.floor(Math.random() * 1200);
     this.y = Math.floor(Math.random() * 600);
     this.vx = CREATOR_VELOCITY;
-    this.state = {
-      square: true,
-      rectangleX: false,
-      rectangleY: false
-    };
+    this.whiteToBlack = "white";
   }
 
   drawCreator() {
     //console.log('x: ',this.width, 'y: ',this.height)
     ctx.save();
-    ctx.fillStyle = "white";
+    ctx.fillStyle =  this.whiteToBlack ;
     ctx.beginPath();
     ctx.fillRect(this.x, this.y, this.width, this.height);
     ctx.restore();
   }
   draw(ctx) {
     if (game.gameStarted && !game.gameOver) {
-      if (this.state.square) {
         this.drawCreator();
-      }
     }
   }
   top() {
