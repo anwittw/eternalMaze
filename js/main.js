@@ -53,6 +53,7 @@ function startNewGame() {
     updateScoreBoard();
     game.gameStarted = true;
     gameInterval();
+    numberOfCreators = calculateAmmountCreators()
     creators = [];
     for (let i = 0; i < numberOfCreators; i++) {
       creators.push(new Creator());
@@ -152,3 +153,17 @@ function calculateAmmountCreators() {
     return MIN_NUMBER_CREATORS
   }
 }
+
+function flip() {
+
+    if(getComputedStyle(document.documentElement).getPropertyValue('--prim-clr') === 'white') {
+      $root.style.setProperty('--prim-clr','black');
+      $root.style.setProperty('--sec-colr','white');
+
+    
+    
+    } else {
+      $root.style.setProperty('--prim-clr','white');
+      $root.style.setProperty('--sec-colr','black');
+}
+    }

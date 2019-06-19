@@ -1,5 +1,7 @@
 
 
+let $root = document.documentElement;
+
 let $scoreBoard = document.getElementById('score-board')
 let $lastScore = document.getElementById('last-score')
 
@@ -42,6 +44,10 @@ document.onkeydown = event => {
   if (event.keyCode === 32) {
     console.log("space!")
       startNewGame()
+  }
+  if (event.keyCode === 70) {
+    console.log("flip!")
+      flip()
   }
 };
 
