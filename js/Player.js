@@ -5,7 +5,6 @@ class Player {
     this.y = 0;
     this.vx = 0;
     this.vy = 0;
-    this.score = 0;
   }
 
   drawPlayer(x, y) {

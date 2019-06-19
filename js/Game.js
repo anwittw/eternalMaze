@@ -12,6 +12,7 @@ class Game {
     this.endIndex = 0;
     this.score = 0;
     this.timer = GAME_TIME;
+    this.playerName = ''
   }
   draw(ctx) {
     if (!this.gameStarted && !this.gameOver) {
@@ -119,10 +120,19 @@ class Game {
     $timer.innerText = toAppend;
   }
 
+  logScoreOnGameOver() {
+    if(this.gameOver && !this.playerName) {
+      this.playerName = prompt('Type your name here')
+      setItem('playerName',this.playerName)
+      setItem('score', this.score)
+    }
+  }
+
   update() {
     this.checkForPlayerDefeat();
     this.checkForPlayerWin();
     this.checkForGameSet();
     this.updateTimer();
+    this.logScoreOnGameOver()
   }
 }

@@ -17,6 +17,8 @@ const MAZE_VELOCITY = -3.0;
 
 const NUMBER_OF_CREATORS = 3000;
 const CREATOR_VELOCITY = 2.2;
+const CREATOR_DECREASE_PER_SCORE = 300
+const MIN_NUMBER_CREATORS = 2000
 
 
 // Game Consts
@@ -28,3 +30,8 @@ const GAME_TIME_INCREASE = 10
 // TIMER 
 
 let timerInterval = 0;
+
+
+// Player CONSTS
+
+const PLAYER_VELOCITY = 5

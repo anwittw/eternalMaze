@@ -3,11 +3,12 @@ let player = new Player();
 let maze = new Maze();
 let game = new Game();
 let creators = [];
-for (let i = 0; i < NUMBER_OF_CREATORS; i++) {
+let numberOfCreators = calculateAmmountCreators()
+for (let i = 0; i < numberOfCreators; i++) {
   creators.push(new Creator());
 }
 
-gameInterval()
+gameInterval();
 
 console.log(creators);
 
@@ -38,28 +39,7 @@ function updateEverything() {
   maze.update();
   game.update();
   player.update();
-}
-
-function checkCollision() {
-  if (player.x + player.width > maze.x) {
-    //console.log("hit");
-    return true;
-  }
-  //console.log("no hit");
-  return false;
-}
-
-function checkForCreatorOverlap() {
-  creators.forEach(function(creator, index) {
-    if (
-      player.x >= creator.x &&
-      player.x + player.width < creator.x + creator.width
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  });
+  updateLastScore();
 }
 
 function startNewGame() {
@@ -70,25 +50,26 @@ function startNewGame() {
     player = new Player();
     maze = new Maze();
     game = new Game();
-     updateScoreBoard()
-     game.gameStarted = true;
-     gameInterval()
+    updateScoreBoard();
+    game.gameStarted = true;
+    gameInterval();
     creators = [];
-    for (let i = 0; i < NUMBER_OF_CREATORS; i++) {
+    for (let i = 0; i < numberOfCreators; i++) {
       creators.push(new Creator());
     }
   } else if (!game.gameStarted) {
-    //console.log("peter");
     game.gameStarted = true;
   } else if (game.gameStarted && !game.gameOver && game.playerWon) {
     //console.log("Next Round");
     updateScoreBoard();
+    numberOfCreators = calculateAmmountCreators()
     frame = 0;
     player = new Player();
     maze = new Maze();
     game.playerWon = false;
+    game.timer = game.timer + GAME_TIME_INCREASE;
     creators = [];
-    for (let i = 0; i < NUMBER_OF_CREATORS; i++) {
+    for (let i = 0; i < numberOfCreators; i++) {
       creators.push(new Creator());
     }
   }
@@ -140,20 +121,34 @@ function indexOfLastCreator() {
 }
 
 function updateScoreBoard() {
-  if(game.gameStarted) {
-  game.score++;
+  if (game.gameStarted) {
+    game.score++;
   }
   let str = "000" + String(game.score);
   let toAppend = "SCORE: " + str.substring(str.length - 4, str.length);
   $scoreBoard.innerText = toAppend;
 }
 
-
+function updateLastScore() {
+  let storedScore =  "000" + getItem('score');
+  let storedName = getItem("playerName");
+  let toAppend2 = "LAST SCORE: " + storedName + ", " + storedScore.substring(storedScore.length - 4, storedScore.length);
+  $lastScore.innerText = toAppend2;
+}
 
 function gameInterval() {
- timerInterval = setInterval(() => {
-  if (game.mazeInPlace) {
-    game.timer--;
+  timerInterval = setInterval(() => {
+    if (game.mazeInPlace) {
+      game.timer--;
+    }
+  }, 1000);
+}
+
+function calculateAmmountCreators() {
+  let calculated = NUMBER_OF_CREATORS - (CREATOR_DECREASE_PER_SCORE * game.score)
+  if (calculated > MIN_NUMBER_CREATORS) {
+    return calculated
+  } else {
+    return MIN_NUMBER_CREATORS
   }
-}, 1000);
 }
