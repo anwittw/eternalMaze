@@ -56,6 +56,12 @@ class Game {
       this.width / 2,
       this.height - 200
     );
+    ctx.font = "25px no-continue";
+    ctx.fillText(
+      "USE ARROWS TO MOVE PLAYER",
+      this.width / 2,
+      this.height - 140
+    );
     ctx.restore();
   }
   drawNextScreen() {
