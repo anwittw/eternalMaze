@@ -1,11 +1,9 @@
-
-
 let $root = document.documentElement;
 
-let $scoreBoard = document.getElementById('score-board')
-let $lastScore = document.getElementById('last-score')
+let $scoreBoard = document.getElementById("score-board");
+let $lastScore = document.getElementById("last-score");
 
-let $timer = document.getElementById('timer')
+let $timer = document.getElementById("timer");
 
 document.onkeyup = event => {
   console.log(event.keyCode);
@@ -29,29 +27,29 @@ document.onkeydown = event => {
   console.log(event.keyCode);
   // left
   if (event.keyCode === 37) {
-    player.vx = -PLAYER_VELOCITY;
+    player.vx = flipped ? -1 * -PLAYER_VELOCITY : -PLAYER_VELOCITY;
   }
   // right
   if (event.keyCode === 39) {
-    player.vx = PLAYER_VELOCITY;
+    player.vx = flipped ? -1 * PLAYER_VELOCITY : PLAYER_VELOCITY;
   }
   if (event.keyCode === 38) {
-    player.vy = -PLAYER_VELOCITY;
+    player.vy = flipped ? -1 * -PLAYER_VELOCITY : -PLAYER_VELOCITY;
   }
   if (event.keyCode === 40) {
-    player.vy = PLAYER_VELOCITY;
+    player.vy = flipped ? -1 * PLAYER_VELOCITY : PLAYER_VELOCITY;
   }
   if (event.keyCode === 32) {
-    console.log("space!")
-      startNewGame()
+    console.log("space!");
+    startNewGame();
   }
   if (event.keyCode === 70) {
-    console.log("flip!")
-      flip()
+    console.log("flip!");
+    flipAll();
   }
 };
 
-canvas.onclick = (e) => {
-  console.log(e)
+canvas.onclick = e => {
+  console.log(e);
   startNewGame();
-}
+};

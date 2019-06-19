@@ -6,7 +6,8 @@ class Creator {
     this.x = Math.floor(Math.random() * 1200);
     this.y = Math.floor(Math.random() * 600);
     this.vx = CREATOR_VELOCITY;
-    this.whiteToBlack = "white";
+    this.blackToWhite = !flipped ? 'black' : 'white' ;
+    this.whiteToBlack = !flipped ? 'white' : 'black';
   }
 
   drawCreator() {

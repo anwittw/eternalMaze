@@ -1,9 +1,10 @@
+
 let frame = 0; // The frame counter
 let player = new Player();
 let maze = new Maze();
 let game = new Game();
 let creators = [];
-let numberOfCreators = calculateAmmountCreators()
+let numberOfCreators = calculateAmmountCreators();
 for (let i = 0; i < numberOfCreators; i++) {
   creators.push(new Creator());
 }
@@ -53,7 +54,7 @@ function startNewGame() {
     updateScoreBoard();
     game.gameStarted = true;
     gameInterval();
-    numberOfCreators = calculateAmmountCreators()
+    numberOfCreators = calculateAmmountCreators();
     creators = [];
     for (let i = 0; i < numberOfCreators; i++) {
       creators.push(new Creator());
@@ -63,7 +64,10 @@ function startNewGame() {
   } else if (game.gameStarted && !game.gameOver && game.playerWon) {
     //console.log("Next Round");
     updateScoreBoard();
-    numberOfCreators = calculateAmmountCreators()
+    if(game.score >= 3) {
+      flipAll()
+    }
+    numberOfCreators = calculateAmmountCreators();
     frame = 0;
     player = new Player();
     maze = new Maze();
@@ -131,12 +135,15 @@ function updateScoreBoard() {
 }
 
 function updateLastScore() {
-  let storedScore =  "000" + getItem('score');
+  let storedScore = "000" + getItem("score");
   let storedName = getItem("playerName");
-  if (storedName)  
-  {
-  let toAppend2 = "LAST SCORE: " + storedName + ", " + storedScore.substring(storedScore.length - 4, storedScore.length);
-  $lastScore.innerText = toAppend2;
+  if (storedName) {
+    let toAppend2 =
+      "LAST SCORE: " +
+      storedName +
+      ", " +
+      storedScore.substring(storedScore.length - 4, storedScore.length);
+    $lastScore.innerText = toAppend2;
   }
 }
 
@@ -149,32 +156,26 @@ function gameInterval() {
 }
 
 function calculateAmmountCreators() {
-  let calculated = NUMBER_OF_CREATORS - (CREATOR_DECREASE_PER_SCORE * game.score)
+  let calculated = NUMBER_OF_CREATORS - CREATOR_DECREASE_PER_SCORE * game.score;
   if (calculated > MIN_NUMBER_CREATORS) {
-    return calculated
+    return calculated;
   } else {
-    return MIN_NUMBER_CREATORS
+    return MIN_NUMBER_CREATORS;
   }
 }
 
-function flip() {
-
-    if(getComputedStyle(document.documentElement).getPropertyValue('--prim-clr') === 'white') {
-      $root.style.setProperty('--prim-clr','black');
-      $root.style.setProperty('--sec-colr','white');
-      game.whiteToBlack = 'black'
-      game.blackToWhite = 'white'
-      maze.blackToWhite = 'white'
-      creators.forEach((e) => e.whiteToBlack = "black")
-
-    
-    
-    } else {
-      $root.style.setProperty('--prim-clr','white');
-      $root.style.setProperty('--sec-colr','black');
-      game.whiteToBlack = 'white'
-      game.blackToWhite = 'black'
-      maze.blackToWhite = 'black'
-      creators.forEach((e) => e.whiteToBlack = "white")
+function flipAll() {
+  if (
+    getComputedStyle(document.documentElement).getPropertyValue(
+      "--prim-clr"
+    ) === "white"
+  ) {
+    $root.style.setProperty("--prim-clr", "black");
+    $root.style.setProperty("--sec-colr", "white");
+    flipped = true;
+  } else {
+    $root.style.setProperty("--prim-clr", "white");
+    $root.style.setProperty("--sec-colr", "black");
+    flipped = false;
+  }
 }
-    }

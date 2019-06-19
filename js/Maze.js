@@ -2,7 +2,8 @@ class Maze {
   constructor() {
     this.x = CANVAS_WIDTH;
     this.reset = false;
-    this.blackToWhite = "black";
+    this.blackToWhite = !flipped ? 'black' : 'white' ;
+    this.whiteToBlack = !flipped ? 'white' : 'black';
   }
   draw(ctx) {
     if (game.gameStarted && !game.gameOver) {

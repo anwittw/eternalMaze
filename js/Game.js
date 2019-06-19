@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-    this.blackToWhite = 'black';
-    this.whiteToBlack = 'white';
+    this.blackToWhite = !flipped ? 'black' : 'white' ;
+    this.whiteToBlack = !flipped ? 'white' : 'black';
     this.x = 0;
     this.y = 0;
     this.width = CANVAS_WIDTH;
