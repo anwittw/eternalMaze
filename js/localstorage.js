@@ -1,5 +1,4 @@
 
-
 console.log(localStorage)
 
 function getItem(key) {
