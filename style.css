@@ -1,9 +1,7 @@
 
 
 @font-face {
-  font-family:"no-continue";
-  src: url("/font/gomarice_no_continue.ttf") format("truetype");
-}
+  font-family: no-continue; src: url(/font/gomarice_no_continue.ttf);}
 
 
 
