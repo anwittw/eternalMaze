@@ -102,7 +102,7 @@ function indexOfFirstCreator() {
       creators[i].x < smallestX &&
       creators[i].x - 2 * creators[i].width > 0 &&
       creators[i].y + 2 * creators[i].height > 0 &&
-      creators[i].y + 2 * creators[i].height < 600
+      creators[i].y + 2 * creators[i].height < 550
     ) {
       lastIndex = i;
       smallestX = creators[i].x;
@@ -117,9 +117,9 @@ function indexOfLastCreator() {
   for (let i = 0; i < creators.length; i++) {
     if (
       creators[i].x > biggestX &&
-      creators[i].x + creators[i].width < 1200 &&
+      creators[i].x + creators[i].width < 1100 &&
       creators[i].y > 0 + creators[i].height &&
-      creators[i].y + creators[i].height < 600
+      creators[i].y + creators[i].height < 550
     ) {
       lastIndex = i;
       biggestX = creators[i].x;
