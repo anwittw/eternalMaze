@@ -75,6 +75,9 @@ function startNewGame() {
     player = new Player();
     maze = new Maze();
     game.playerWon = false;
+    game.mazeInPlace = false;
+    game.startIndex = 0
+    game.endIndex = 0
     game.timer = game.timer + GAME_TIME_INCREASE;
     creators = [];
     for (let i = 0; i < numberOfCreators; i++) {

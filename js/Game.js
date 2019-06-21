@@ -86,9 +86,11 @@ class Game {
       if (creatorReachedEnd() && maze.x === 0) {
         this.startIndex = indexOfFirstCreator();
         this.endIndex = indexOfLastCreator();
+        if(this.startIndex != 0 && this.endIndex != 0) {
         player.x = creators[game.startIndex].x;
         player.y = creators[game.startIndex].y;
         this.mazeInPlace = true;
+        }
       }
     }
   }
